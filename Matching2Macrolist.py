@@ -39,7 +39,7 @@ logfile = r"V:\SurveyStore\Customised\Projects\AUS SS Online\2021\08 - Aug\PP On
 list_df = list(df['m_donor'])
 no_p = []
 for i in list_df:
-    i = i.replace('p','' )
+    i = i.replace('p','0' )
     no_p.append(i)
 
 df = pd.DataFrame({"m_donor" : no_p})
