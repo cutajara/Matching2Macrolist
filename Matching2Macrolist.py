@@ -52,6 +52,9 @@ if Option == 2:
     with open(logfile, "r") as tf:
         lines = tf.read().split('\n')
     
+    try: lines.remove('') # Try remove exempt lines
+    except: pass
+    
     Info = "Log File Read"
     list_df_2 = list(df['m_donor'])
     
