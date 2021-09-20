@@ -39,7 +39,7 @@ logfile = r"V:\SurveyStore\Customised\Projects\AUS SS Online\2021\08 - Aug\PP On
 list_df = list(df['m_donor'])
 no_p = []
 for i in list_df:
-    i = i.replace('p','0' )
+    i = i.replace('p','' )
     no_p.append(i)
 
 df = pd.DataFrame({"m_donor" : no_p})
@@ -52,13 +52,16 @@ if Option == 2:
     with open(logfile, "r") as tf:
         lines = tf.read().split('\n')
     
+    try: lines.remove('') # Try remove exempt lines
+    except: pass
+    
     Info = "Log File Read"
     list_df_2 = list(df['m_donor'])
     
     Correct = []
     for i in list_df_2:
         for j in lines:
-            i = i.replace(j,'' )
+            i = i.replace(j,'0' )
         
         Correct.append(i)
     
